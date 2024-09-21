@@ -8,6 +8,7 @@ from sqlalchemy.orm import DeclarativeBase
 
 engine = create_async_engine(settings.DB_URL)
 
+# engine = create_async_engine(settings.DB_URL, echo=True) - для логирование запросов
 
 # async def func():
 #     async with engine.begin() as conn:
@@ -18,7 +19,7 @@ engine = create_async_engine(settings.DB_URL)
 
 
 async_session_maker = async_sessionmaker(bind=engine, expire_on_commit=False)
-session = async_session_maker()
+# session = async_session_maker()
 
 
 class Base(DeclarativeBase):
