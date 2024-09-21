@@ -1,7 +1,17 @@
 import uvicorn
 from fastapi import FastAPI
-from fastapi.openapi.docs import get_swagger_ui_html, get_swagger_ui_oauth2_redirect_html
-from hotels import router as router_hotels
+from fastapi.openapi.docs import get_swagger_ui_html
+
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).parent.parent))
+
+from src.api.hotels import router as router_hotels
+from src.config import settings
+from src.database import *
+
+print(f"{settings.DB_URL=}")
 
 app = FastAPI(docs_url=None)
 
