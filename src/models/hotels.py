@@ -4,9 +4,6 @@ from sqlalchemy import String, Column, Integer, Float, ForeignKey
 from src.database import Base, engine
 
 
-from fastapi import FastAPI
-
-
 class HotelsOrm(Base):
     __tablename__ = 'hotels'
 
