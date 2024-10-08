@@ -3,7 +3,7 @@ from sqlalchemy import String, Column, Integer, Float, ForeignKey
 
 from src.database import Base, engine
 
-from sqladmin import Admin, ModelView
+
 from fastapi import FastAPI
 
 
@@ -15,12 +15,3 @@ class HotelsOrm(Base):
     location: Mapped[str]
 
 
-app = FastAPI()
-admin = Admin(app, engine)
-
-
-class UserAdmin(ModelView, model=HotelsOrm):
-    column_list = [HotelsOrm.id, HotelsOrm.title]
-
-
-admin.add_view(UserAdmin)
